@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static com.chess.engine.board.Move.*;
+import static com.chess.engine.board.Move.AttackMove;
+import static com.chess.engine.board.Move.MajorMove;
 
 public class King extends Piece{
 
@@ -50,6 +51,11 @@ public class King extends Piece{
             }
         }
         return ImmutableList.copyOf(legalMoves);
+    }
+
+    @Override
+    public King movePiece(final Move move) {
+        return new King(move.getMovedPiece().getPieceAlliance(), move.getDestinationCoordinate());
     }
 
     @Override
