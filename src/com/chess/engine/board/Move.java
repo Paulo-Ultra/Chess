@@ -160,7 +160,6 @@ public abstract class Move {
         public PawnJump(final Board board, final Piece movedPiece, final int destinationCoordinate) {
             super(board, movedPiece, destinationCoordinate);
         }
-
         @Override
         public Board execute() {
             final Builder builder = new Builder();
