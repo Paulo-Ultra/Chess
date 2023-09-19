@@ -20,7 +20,7 @@ public class BoardUtils {
     public static final boolean[] THIRD_RANK = initRow(40);
     public static final boolean[] SECOND_RANK = initRow(48);
     public static final boolean[] FIRST_RANK = initRow(56);
-    public static final String[] ALGEBREIC_NOTATION = initializeAlgebreicNotation();
+    public static final String[] ALGEBRAIC_NOTATION = initializeAlgebreicNotation();
     public final Map<String, Integer> POSITION_TO_COORDINATE = initializePositionToCoordinateMap();
     public static final int START_TILE_INDEX = 0;
     public static final int NUM_TILES = 64;
@@ -57,7 +57,7 @@ public class BoardUtils {
     private Map<String, Integer> initializePositionToCoordinateMap() {
         final Map<String, Integer> positionToCoordinate = new HashMap<>();
         for (int i = START_TILE_INDEX; i < NUM_TILES; i++) {
-            positionToCoordinate.put(ALGEBREIC_NOTATION[i], i);
+            positionToCoordinate.put(ALGEBRAIC_NOTATION[i], i);
         }
         return ImmutableMap.copyOf(positionToCoordinate);
     }
@@ -80,6 +80,6 @@ public class BoardUtils {
     }
 
     public static String getPositionAtCoordinate(final int coordinate) {
-        return ALGEBREIC_NOTATION[coordinate];
+        return ALGEBRAIC_NOTATION[coordinate];
     }
 }
