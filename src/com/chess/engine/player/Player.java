@@ -10,6 +10,7 @@ import com.google.common.collect.Iterables;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class Player {
@@ -93,10 +94,10 @@ public abstract class Player {
 
         final Board transitionBoard = move.execute();
 
-        final Collection<Move> kingAttcks = Player.calculateAttacksOnTile(transitionBoard.currentPlayer().getOpponent()
+        final Collection<Move> kingAttacks = Player.calculateAttacksOnTile(transitionBoard.currentPlayer().getOpponent()
                 .getPlayerKing().getPiecePosition(), transitionBoard.currentPlayer().getLegalMoves());
 
-        if(!kingAttcks.isEmpty()){
+        if(!kingAttacks.isEmpty()){
             return new MoveTransition(this.board, move, MoveStatus.LEAVES_PLAYER_IN_CHECK);
         }
         return new MoveTransition(transitionBoard, move, MoveStatus.DONE);

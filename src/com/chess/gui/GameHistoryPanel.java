@@ -47,9 +47,12 @@ public class GameHistoryPanel extends JPanel {
 
                 if(lastMove.getMovedPiece().getPieceAlliance().isWhite()){
                     this.model.setValueAt(moveText + calculateCheckAndCheckMateHash(board),
-                            currentRow -1, 1 );
+                            currentRow, 0 );
+                } else if (lastMove.getMovedPiece().getPieceAlliance().isBlack()) {
+                    this.model.setValueAt(moveText + calculateCheckAndCheckMateHash(board),
+                            currentRow - 1, 1);
+                }
             }
-        }
             final JScrollBar vertical = scrollPane.getVerticalScrollBar();
             vertical.setValue(vertical.getMaximum());
     }
@@ -112,6 +115,7 @@ public class GameHistoryPanel extends JPanel {
             }
             if(column == 0){
                 currentRow.setWhiteMove((String) aValue);
+                fireTableRowsInserted(row, row);
             } else if (column == 1) {
                 currentRow.setBlackMove((String) aValue);
                 fireTableCellUpdated(row, column);

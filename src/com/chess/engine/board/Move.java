@@ -12,7 +12,6 @@ public abstract class Move {
     protected final Piece movedPiece;
     protected final int destinationCoordinate;
     protected final boolean isFirstMove;
-
     public static final Move NULL_MOVE = new NullMove();
 
     Move(final Board board,
@@ -194,6 +193,11 @@ public abstract class Move {
             builder.setEnPassantPawn(movedPawn);
             builder.setMoveMaker(this.board.currentPlayer().getOpponent().getAlliance());
             return builder.build();
+        }
+
+        @Override
+        public String toString(){
+            return BoardUtils.getPositionAtCoordinate(this.destinationCoordinate);
         }
     }
 
