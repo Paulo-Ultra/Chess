@@ -293,7 +293,7 @@ public class Table {
             if(board.getTile(this.tileId).isTileOccupied()){
                 try {
                     final BufferedImage image = ImageIO.read(new File(defaultPieceImagesPath + board.getTile(this.tileId)
-                            .getPiece().getPieceAlliance().toString().substring(0,1) +
+                            .getPiece().getPieceAlliance().toString().substring(0,1) + "" +
                             board.getTile(this.tileId).getPiece().toString() + ".gif"));
                     add(new JLabel(new ImageIcon(image)));
                 } catch (IOException e) {
